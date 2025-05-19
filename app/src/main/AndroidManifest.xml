@@ -44,9 +44,8 @@
             android:exported="true"
             android:launchMode="singleTask">
             <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
-
+                <action android:name="com.android.settings.action.EXTRA_SETTINGS" />
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
             <intent-filter>
@@ -57,6 +56,19 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <action android:name="com.hardbacknutter.sshd.fg.STOP" />
             </intent-filter>
+
+            <meta-data
+                android:name="com.android.settings.category"
+                android:value="com.android.settings.category.ia.system" />
+            <meta-data
+                android:name="com.android.settings.title"
+                android:value="@string/app_name" />
+            <meta-data
+                android:name="com.android.settings.summary"
+                android:value="@string/service_description" />
+            <meta-data
+                android:name="com.android.settings.icon"
+                android:resource="@drawable/app" />
         </activity>
 
         <service
