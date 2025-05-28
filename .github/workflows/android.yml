@@ -27,7 +27,7 @@ jobs:
       working-directory: ./app/src/main/cpp
       run: |
           ./prebuild-rsyn.sh
-          ./prebuild-dropbear.sh"
+          ./prebuild-dropbear.sh
 
     - name: Build with Gradle
       run: ./gradlew assembleDebug
