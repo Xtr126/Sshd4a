@@ -24,7 +24,7 @@ jobs:
     - name: Pre-build
       working-directory: ./app/src/main/cpp
       run: |
-        bash -c "find -type f -iname "*.sh" -exec chmod a+x {} \;
+        bash -c "find -type f -iname "*.sh" -exec chmod a+x {} ;
                 ./prebuild-rsyn.sh
                 ./prebuild-dropbear.sh"
 
