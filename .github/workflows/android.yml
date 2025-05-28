@@ -30,7 +30,9 @@ jobs:
           ./prebuild-dropbear.sh
 
     - name: Build with Gradle
-      run: ./gradlew assembleDebug
+      run: |
+        export PATH=/usr/local/lib/android/sdk/cmake/*/bin:$PATH
+        ./gradlew assembleDebug
     
     - uses: actions/upload-artifact@v4
       with:
