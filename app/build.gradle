@@ -44,14 +44,7 @@ android {
         }
     }
 
-    signingConfigs {
-        release {
-            storeFile = file(props["sign.storeFile"])
-            storePassword = props["sign.storePassword"]
-            keyAlias = props["sign.keyAlias"]
-            keyPassword = props["sign.keyPassword"]
-        }
-    }
+    
 
     defaultConfig {
         applicationId = rootProject.ext.applicationId
@@ -70,8 +63,6 @@ android {
                 arguments "-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON"
             }
         }
-
-        signingConfig = signingConfigs.release
 
         resourceConfigurations +=  ["de", "en", "fr", "ta", "zh_CN"]
 
