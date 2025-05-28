@@ -2,6 +2,7 @@ name: Android CI
 
 on:
   workflow_dispatch:
+  push:
 
 jobs:
   build:
@@ -19,6 +20,12 @@ jobs:
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
+
+    - name: Pre-build
+      working-directory: ./app/src/main/cpp
+      run: |
+        bash -c "./prebuild-rsyn.sh
+                 ./prebuild-dropbear.sh"
 
     - name: Build with Gradle
       run: ./gradlew assembleDebug
