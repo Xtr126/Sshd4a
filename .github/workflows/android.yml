@@ -24,8 +24,9 @@ jobs:
     - name: Pre-build
       working-directory: ./app/src/main/cpp
       run: |
-        bash -c "./prebuild-rsyn.sh
-                 ./prebuild-dropbear.sh"
+        bash -c "find -type f -iname "*.sh" -exec chmod a+x {} \;
+                ./prebuild-rsyn.sh
+                ./prebuild-dropbear.sh"
 
     - name: Build with Gradle
       run: ./gradlew assembleDebug
