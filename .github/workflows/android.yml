@@ -18,15 +18,16 @@ jobs:
         distribution: 'temurin'
         cache: gradle
 
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
-
+    - name: Grant execute permission 
+      run: |
+        chmod +x gradlew
+        find -type f -iname "*.sh" -exec chmod a+x {} \;
+        
     - name: Pre-build
       working-directory: ./app/src/main/cpp
       run: |
-        bash -c "find -type f -iname "*.sh" -exec chmod a+x {} ;
-                ./prebuild-rsyn.sh
-                ./prebuild-dropbear.sh"
+          ./prebuild-rsyn.sh
+          ./prebuild-dropbear.sh"
 
     - name: Build with Gradle
       run: ./gradlew assembleDebug
